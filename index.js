@@ -37,7 +37,7 @@ module.exports.searchByAirportName = function(name) {
 
   nameResults = _.chain(airports)
     .filter(function(v) {
-      return !_.includes(iatas, v.iata) && v.name.toLowerCase().indexOf(name) > -1
+      return !_.includes(iatas, v.iata) && (v.name.toLowerCase().indexOf(name) > -1 || v.city.toLowerCase().indexOf(name) > -1)
     })
     .value()
 
